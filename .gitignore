@@ -1,3 +1,4 @@
 .vscode/
 src/build/
 venv/
+src/main/python/__pycache__/
