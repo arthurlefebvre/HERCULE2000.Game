@@ -1,5 +1,5 @@
 from fbs_runtime.application_context import ApplicationContext
-from PyQt5.QtWidgets import QMainWindow, QWidget, QVBoxLayout, QPushButton, QComboBox
+from PyQt5.QtWidgets import QMainWindow, QWidget, QVBoxLayout, QPushButton, QComboBox, QLabel
 from PyQt5.QtCore import QThread, QObject, pyqtSignal
 
 import sys
@@ -20,12 +20,15 @@ class MainWindow(QMainWindow):
     def initUI(self):
         self.layout = QVBoxLayout()
 
+        self.label = QLabel("PROJET COLLECTIF DII : Tic-tac-toe")
+
         self.comboBox = QComboBox()
         self.comboBox.addItems(["Débutant", "Intermédiaire", "Expert"])
 
         self.playBt = QPushButton("Jouer")
         self.playBt.clicked.connect(self.on_clicked_bt)
 
+        self.layout.addWidget(self.label)
         self.layout.addWidget(self.comboBox)
         self.layout.addWidget(self.playBt)
 
@@ -70,8 +73,12 @@ class MainWindow(QMainWindow):
             print(board.get_board())
 
 
-        print("GAME OVER")
-
+        if board.wins(1) == True:
+            print("PARTIE PERDUE")
+        elif board.wins(-1):
+            print("PARTIE GAGNEE")
+        else:
+            print("EGALITE")
 if __name__ == '__main__':
     appctxt = ApplicationContext()       # 1. Instantiate ApplicationContext
     app = MainWindow()

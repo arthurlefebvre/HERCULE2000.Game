@@ -124,7 +124,11 @@ def mainIAExpert():
         print(board.get_board())
 
 
-    print("GAME OVER")
+
+    if board.wins(1) == True:
+        print("PARTIE PERDUE")
+    else:
+        print("PARTIE GAGNEE")
     print(board.get_board())
 
 #mainIAExpert()
