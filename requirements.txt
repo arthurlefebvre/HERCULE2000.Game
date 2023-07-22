@@ -6,6 +6,6 @@ macholib==1.11
 numpy==1.16.3
 pefile==2019.4.18
 pkg-resources==0.0.0
-PyInstaller==3.4
+PyInstaller==3.6
 PyQt5==5.12.2
 PyQt5-sip==4.19.17
